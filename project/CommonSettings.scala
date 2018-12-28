@@ -27,7 +27,7 @@ object CommonSettings extends AutoPlugin {
     // https://www.jfrog.com/confluence/display/RTF/SBT+Repositories#SBTRepositories-DeployingArtifacts
     // admin / password
     publishTo := Some(
-      "Artifactory Realm" at "http://localhost:8081/artifactory/sbt-release-local"),
+      Resolver.file("file", new File(baseDirectory.value + "/release-repo"))),
     credentials += Credentials("Artifactory Realm",
                                "localhost",
                                "admin",
